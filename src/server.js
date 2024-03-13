@@ -27,8 +27,16 @@ const sequelize = new Sequelize({
 });
 
 /* Initialising the Model on sequelize */
-const userModel = require("./backend/common/models/users.model");
-userModel.init(sequelize);
+
+/* User Model */
+require("./backend/common/models/users.model").init();
+
+/* Collection Models */
+require("./backend/common/models/collection/albums.model").init();
+require("./backend/common/models/collection/artists.model").init();
+require("./backend/common/models/collection/genres.model").init();
+require("./backend/common/models/collection/songs.model").init();
+
 
 sequelize.sync().then(() => {
     console.info("Connection to MySQL successfully established");
@@ -62,6 +70,7 @@ app.get('/dashboard', (req, res) => {
 /* --- API Routing --- */
 app.use('/api/users',  require('./backend/routes/users/routes'));
 app.use('/api/auth',  require('./backend/routes/authorization/routes'));
+app.use('/api/collection', require('./backend/routes/collection/routes'))
 
 
 
