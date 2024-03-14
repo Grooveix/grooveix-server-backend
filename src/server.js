@@ -29,13 +29,13 @@ const sequelize = new Sequelize({
 /* Initialising the Model on sequelize */
 
 /* User Model */
-require("./backend/common/models/users.model").init();
+require("./backend/common/models/users.model").init(sequelize);
 
 /* Collection Models */
-require("./backend/common/models/collection/albums.model").init();
-require("./backend/common/models/collection/artists.model").init();
-require("./backend/common/models/collection/genres.model").init();
-require("./backend/common/models/collection/songs.model").init();
+require("./backend/common/models/collection/albums.model").init(sequelize);
+require("./backend/common/models/collection/artists.model").init(sequelize);
+require("./backend/common/models/collection/genres.model").init(sequelize);
+require("./backend/common/models/collection/songs.model").init(sequelize);
 
 
 sequelize.sync().then(() => {

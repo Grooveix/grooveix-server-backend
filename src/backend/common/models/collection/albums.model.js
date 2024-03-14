@@ -17,22 +17,34 @@ const AlbumsModel = {
         type: DataTypes.INTEGER,
     },
 
-    artist: {
-        /* Make dependent: artist.model */
+    artistId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'artists',
+            key: 'id'
+        }
     },
 
     releaseDate: {
         type: DataTypes.DATE,
     },
 
-    genres: {
-        /* Make dependent: genres.model */
+    genreId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'genres',
+            key: 'id'
+        }
     },
 
 
     diskNumber: {
         type: DataTypes.INTEGER
     },
+
+    /* TODO: maybe add a list of Songs in this table... */
 
 };
 

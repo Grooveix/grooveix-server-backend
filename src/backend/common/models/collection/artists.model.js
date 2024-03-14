@@ -13,20 +13,39 @@ const artistsModel = {
         allowNull: false,
     },
 
-    genres: {
-        /* Make dependent: genres.model */
+    genreId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'genres',
+            key: 'id'
+        }
     },
 
     description: {
         type: DataTypes.STRING
     },
 
-    albums: {
-        /* Make dependent: discography.model */
+
+    /* TODO: somehow get many references from albums...
+    *  For now working with only one album/single for one artist
+    *  */
+    albumsId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'albums',
+            key: 'id'
+        }
     },
 
-    singles: {
-        /* Make dependent: discography.model */
+    singlesID: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'songs',
+            key: 'id'
+        }
     },
 
 };

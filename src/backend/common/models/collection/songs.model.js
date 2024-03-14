@@ -18,21 +18,36 @@ const SongsModel = {
         defaultValue: 1,
     },
 
-    album: {
-        /* Make dependent: album.model */
+    albumId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'albums',
+            key: 'id'
+        }
     },
 
 
-    artist: {
-        /* Make dependent: artist.model */
+    artistId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'artists',
+            key: 'id'
+        }
     },
 
     releaseDate: {
         type: DataTypes.DATE,
     },
 
-    genres: {
-        /* Make dependent: genres.model */
+    genresId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'genres',
+            key: 'id'
+        }
     },
 
     duration: {
